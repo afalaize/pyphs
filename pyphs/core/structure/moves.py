@@ -76,7 +76,7 @@ def moveCoreMcolnrow(core, indi, indf):
     indi, indf : intergers
         Initial and final column/row indices in [0, core.dims.tot()-1].
     """
-    if not core.M.is_zero:
+    if not core.M.is_zero and not any(c == 0 for c in core.M.shape):
         core.M = movesquarematrixcolnrow(core.M, indi, indf)
 
 
